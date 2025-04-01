@@ -118,6 +118,11 @@ inform.innerText = 'Check your list for the added task'
 }
 function sortByDate() {
     array.sort((a, b) => new Date(a.date) - new Date(b.date));
+listOfDisplay()
+}
+function sortByTask() {
+    array.sort((a, b) => a.task.localeCompare(b.task)); 
+    listOfDisplay()
 }
 
 function page1(){
