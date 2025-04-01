@@ -7,7 +7,7 @@ let category = document.getElementById('category')
 
 let display = document.getElementById('main2')
 
-
+let displayagain = document.getElementById('main')
 
 let show = document.getElementById('show')
 
@@ -26,17 +26,18 @@ function listOfDisplay() {
           amount.textContent = `Amount: ${items.amount} `;
           const categoryList = document.createElement('span');
           categoryList.classList.add('category-list'); 
-          categoryList.textContent = `Category ${items.category} `;
+          categoryList.textContent = `Category: ${items.category} `;
       
 
     let dateInput = document.createElement('p');
     dateInput.classList.add('p-tag')
         dateInput.innerText
-         = new Date()
+         = 'date: ' +  new Date()
         
 
         const checkbox = document.createElement('input')
         checkbox.type = 'checkbox';
+        checkbox.classList.add('check')
         checkbox.addEventListener('click', function () {
             alert('task completed')
         })
@@ -101,11 +102,13 @@ function sortByDate() {
 }
 
 function page1(){
-document.getElementById('main2').style.display = 'none' 
-document.getElementById('main').style.display = 'block' 
+display.style.display = 'none' 
+displayagain.style.display = 'block' 
+show.style.display = 'none'  
 }
 
 function page2(){
-    document.getElementById('main2').style.display = 'block'
-    document.getElementById('main').style.display = 'none'   
+    display.style.display = 'block'
+   displayagain.style.display = 'none' ;
+    show.style.display = 'block'  
 }
