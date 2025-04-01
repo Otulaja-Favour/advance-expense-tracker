@@ -11,6 +11,8 @@ let displayagain = document.getElementById('main')
 
 let show = document.getElementById('show')
 
+let inform = document.getElementById('inform')
+
 let array = [];
 
 function listOfDisplay() {
@@ -22,7 +24,7 @@ function listOfDisplay() {
         list.textContent = ` Item: ${items.task}
            `;
           const amount = document.createElement('p')
-          amount.classList.add('lists')
+          amount.classList.add('category-list')
           amount.textContent = `Amount: ${items.amount} `;
           const categoryList = document.createElement('span');
           categoryList.classList.add('category-list'); 
@@ -32,25 +34,41 @@ function listOfDisplay() {
     let dateInput = document.createElement('p');
     dateInput.classList.add('p-tag')
         dateInput.innerText
-         = 'date: ' +  new Date()
+         = 'Date: ' +  new Date()
         
 
         const checkbox = document.createElement('input')
         checkbox.type = 'checkbox';
         checkbox.classList.add('check')
         checkbox.addEventListener('click', function () {
-            alert('task completed')
+            if (this.checked) {
+                alert('task completed');
+                list.style.backgroundColor = 'azure';
+                list.style.border = 'none'
+              } else {
+                alert('task not completed');
+                list.style.backgroundColor = ''; 
+              }
+            
         })
         const deleteButton = document.createElement('button')
         deleteButton.classList.add('deletebtn');
         deleteButton.classList.add('delete')
         deleteButton.textContent = 'Delete';
         deleteButton.addEventListener('click', function () {
-            alert('still coming back to this place')
-            array.splice(index, 1)
-        })
+            document.getElementById('confirmation').style.display = 'block';
+            document.getElementById('yes').addEventListener('click', () => {
+              array.splice(index, 1);
+              listOfDisplay();
+              document.getElementById('confirmation').style.display = 'none';
+            });
+            document.getElementById('no').addEventListener('click', () => {
+              document.getElementById('confirmation').style.display = 'none';
+            });
+          });
+          
         console.log(dateInput.innerText);
-
+list.appendChild(amount)
 list.appendChild(categoryList)
 list.appendChild(dateInput)
         list.appendChild(checkbox);
@@ -82,7 +100,7 @@ function addTask() {
 
        
 
-
+inform.innerText = 'Check your list for the added task'
 
         if (perTask && newAmount) {
             toAddToArray({ task: perTask, amount: newAmount, category: selectedCategory,  });
@@ -93,7 +111,7 @@ function addTask() {
             alert('pls input something jor')
         }
     } else {
-        alert('dey play')
+        alert('kindly input all details to proceed accordingly')
     }
 
 }
@@ -110,5 +128,6 @@ show.style.display = 'none'
 function page2(){
     display.style.display = 'block'
    displayagain.style.display = 'none' ;
-    show.style.display = 'block'  
+    show.style.display = 'block';
+    inform.innerText = '';  
 }

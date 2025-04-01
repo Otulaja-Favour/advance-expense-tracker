@@ -1,49 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <div class="all">
-  <div class="main" id="main">
+        <div class="main" id="main">
 
 
-<input type="text" placeholder="input here" id="inputtext">
+            <input type="text" placeholder="Input here" id="inputtext">
 
-<input type="number" placeholder="amount" id="amount">
+            <input type="number" placeholder="Amount" id="amount">
 
-<select name="category" id="category">
-    <option value="select category">selct category</option>
-<option value="Food">Food</option>
-<option value="Travel">Travel</option>
-<option value="Entertainment">Entertainment</option>
-</select>
+            <select name="category" id="category">
+                <option value="select category">selct category</option>
+                <option value="Food">Food</option>
+                <option value="Travel">Travel</option>
+                <option value="Entertainment">Entertainment</option>
+            </select>
 
-<button onclick="addTask()">add expense</button>
+            <button onclick="addTask()">Addup</button>
+
+            <p id="inform"></p>
+          
+
+        </div>
 
 
-</div>
-        
-   
-<div id="main2">
-<p id="show"></p>
-<button onclick="sortByDate()">sort</button>
- </div>
-    <footer>
-        <button onclick="page1()">home</button>
-        <button onclick="page2()">list</button>
-    </footer>
+        <div id="main2">
+            <p id="show"></p>
+            <button onclick="sortByDate()">sort</button>
+            <div id="confirmation">
+                <h3>do you want to delete this list</h3>
+                <button id="yes">Yes</button> <button id="no">No</button>
+            </div>
+        </div>
+        <footer>
+            <button onclick="page1()">home</button>
+            <button onclick="page2()">list</button>
+        </footer>
 
 
     </div>
-  
+
 
 
 
     <script src="script.js"></script>
 </body>
+
 </html>
