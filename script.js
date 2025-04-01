@@ -48,6 +48,7 @@ function listOfDisplay() {
               } else {
                 alert('task not completed');
                 list.style.backgroundColor = ''; 
+                list.style.border = 'block'
               }
             
         })
