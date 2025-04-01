@@ -48,7 +48,7 @@ function listOfDisplay() {
               } else {
                 alert('task not completed');
                 list.style.backgroundColor = ''; 
-                list.style.border = 'block'
+                list.style.border = '1px solid red'
               }
             
         })
