@@ -34,7 +34,7 @@ function listOfDisplay() {
     let dateInput = document.createElement('p');
     dateInput.classList.add('p-tag')
         dateInput.innerText
-         = 'Date: ' +  new Date()
+         = 'Date: ' +  new Date().toLocaleDateString()
         
 
         const checkbox = document.createElement('input')
