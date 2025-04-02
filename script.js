@@ -12,7 +12,11 @@ let show = document.getElementById('show')
 
 let inform = document.getElementById('inform')
 
-let array = [];
+const array = JSON.parse(localStorage.getItem('task')) || [];
+
+function saveWork(){
+    localStorage.setItem('task', JSON.stringify(array))
+}
 
 function listOfDisplay() {
     show.innerHTML = '';
@@ -61,6 +65,7 @@ function listOfDisplay() {
             document.getElementById('confirmation').style.display = 'block';
             document.getElementById('yes').addEventListener('click', () => {
                 array.splice(index, 1);
+                saveWork()
                 listOfDisplay();
                 document.getElementById('confirmation').style.display = 'none';
             });
@@ -83,6 +88,8 @@ function toAddToArray(task) {
     const newArray = { task }
 
     array.push(task)
+
+saveWork()
 
     listOfDisplay()
 }
@@ -121,12 +128,14 @@ function addTask() {
 //sorting date
 function sortByDate() {
     array.sort((a, b) => new Date(a.date) - new Date(b.date));
+    saveWork()
     listOfDisplay()
 }
 
 //sorting task
 function sortByTask() {
     array.sort((a, b) => a.task.localeCompare(b.task));
+    saveWork()
     listOfDisplay()
 }
 
@@ -144,3 +153,5 @@ function page2() {
     show.style.display = 'block';
     inform.innerText = '';
 }
+//reload from localstorage
+document.addEventListener('DOMContentLoaded', listOfDisplay)
