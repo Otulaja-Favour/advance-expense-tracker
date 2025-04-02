@@ -155,5 +155,8 @@ button:hover{
     .all{
         width: 100%;
     }
+    #confirmation{
+        width: 90%;
+    }
     
 }

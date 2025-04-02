@@ -1,4 +1,3 @@
-
 let inputfield = document.getElementById('inputtext');
 
 let amount = document.getElementById('amount')
@@ -21,21 +20,22 @@ function listOfDisplay() {
     array.forEach((items, index) => {
         const list = document.createElement('li')
         list.classList.add('listed')
-        list.textContent = ` Item: ${items.task}
-           `;
-          const amount = document.createElement('p')
-          amount.classList.add('category-list')
-          amount.textContent = `Amount: ${items.amount} `;
-          const categoryList = document.createElement('span');
-          categoryList.classList.add('category-list'); 
-          categoryList.textContent = `Category: ${items.category} `;
-      
+        list.textContent = ` Item: ${items.task}`;
 
-    let dateInput = document.createElement('p');
-    dateInput.classList.add('p-tag')
+        const amount = document.createElement('p')
+        amount.classList.add('category-list')
+        amount.textContent = `Amount: ${items.amount} `;
+
+        const categoryList = document.createElement('span');
+        categoryList.classList.add('category-list');
+        categoryList.textContent = `Category: ${items.category} `;
+
+
+        let dateInput = document.createElement('p');
+        dateInput.classList.add('p-tag')
         dateInput.innerText
-         = 'Date: ' +  new Date().toLocaleDateString()
-        
+            = 'Date: ' + new Date().toLocaleDateString()
+
 
         const checkbox = document.createElement('input')
         checkbox.type = 'checkbox';
@@ -45,13 +45,14 @@ function listOfDisplay() {
                 alert('task completed');
                 list.style.backgroundColor = 'azure';
                 list.style.border = 'none'
-              } else {
+            } else {
                 alert('task not completed');
-                list.style.backgroundColor = ''; 
+                list.style.backgroundColor = '';
                 list.style.border = '1px solid red'
-              }
-            
+            }
+
         })
+ 
         const deleteButton = document.createElement('button')
         deleteButton.classList.add('deletebtn');
         deleteButton.classList.add('delete')
@@ -59,19 +60,19 @@ function listOfDisplay() {
         deleteButton.addEventListener('click', function () {
             document.getElementById('confirmation').style.display = 'block';
             document.getElementById('yes').addEventListener('click', () => {
-              array.splice(index, 1);
-              listOfDisplay();
-              document.getElementById('confirmation').style.display = 'none';
+                array.splice(index, 1);
+                listOfDisplay();
+                document.getElementById('confirmation').style.display = 'none';
             });
             document.getElementById('no').addEventListener('click', () => {
-              document.getElementById('confirmation').style.display = 'none';
+                document.getElementById('confirmation').style.display = 'none';
             });
-          });
-          
+        });
+
         console.log(dateInput.innerText);
-list.appendChild(amount)
-list.appendChild(categoryList)
-list.appendChild(dateInput)
+        list.appendChild(amount)
+        list.appendChild(categoryList)
+        list.appendChild(dateInput)
         list.appendChild(checkbox);
         list.appendChild(deleteButton);
         show.appendChild(list);
@@ -99,12 +100,12 @@ function addTask() {
         const perTask = inputfield.value.trim();
         let newAmount = parseFloat(amount.value);
 
-       
 
-inform.innerText = 'Check your list for the added task'
+
+        inform.innerText = 'Check your list for the added task'
 
         if (perTask && newAmount) {
-            toAddToArray({ task: perTask, amount: newAmount, category: selectedCategory,  });
+            toAddToArray({ task: perTask, amount: newAmount, category: selectedCategory, });
             inputfield.value = '';
             amount.value = '';
             category.selectedindex = 0
@@ -116,24 +117,30 @@ inform.innerText = 'Check your list for the added task'
     }
 
 }
+
+//sorting date
 function sortByDate() {
     array.sort((a, b) => new Date(a.date) - new Date(b.date));
-listOfDisplay()
-}
-function sortByTask() {
-    array.sort((a, b) => a.task.localeCompare(b.task)); 
     listOfDisplay()
 }
 
-function page1(){
-display.style.display = 'none' 
-displayagain.style.display = 'block' 
-show.style.display = 'none'  
+//sorting task
+function sortByTask() {
+    array.sort((a, b) => a.task.localeCompare(b.task));
+    listOfDisplay()
 }
 
-function page2(){
+
+//page change
+function page1() {
+    display.style.display = 'none'
+    displayagain.style.display = 'block'
+    show.style.display = 'none'
+}
+
+function page2() {
     display.style.display = 'block'
-   displayagain.style.display = 'none' ;
+    displayagain.style.display = 'none';
     show.style.display = 'block';
-    inform.innerText = '';  
+    inform.innerText = '';
 }
