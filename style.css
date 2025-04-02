@@ -50,6 +50,10 @@
 option:hover{
     background-color: antiquewhite;
 }
+h1{
+    text-align: center;
+    margin-top: 50px;
+}
 #show{
     margin: 10px 0;
     width: 100%;
@@ -139,7 +143,7 @@ font-weight: bold;
 footer{
     display: flex;
     flex-direction: row;
-    margin: 8% auto;
+    margin: 5% auto;
 border: 1px solid;
 width: 90%;
 }
